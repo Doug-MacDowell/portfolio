@@ -2,7 +2,7 @@
 
 This is a simple static page generator for Rails.
 
-# Author:  Doug MacDowell
+## Author:  Doug MacDowell
 
 ## Installation
 
