@@ -12,6 +12,10 @@ Download and install the 'portfolio' gem.
 
 After starting the app, navigate to 0.0.0.0:3000 in your browser to see the message.
 
+## Link to passing test:
+https://www.dropbox.com/s/rjc7t7m858i7my4/Link%20to%20Screenshot%20from%20Week2%20assignment.png
+
+
 ## Contributing
 
 1. Fork it
