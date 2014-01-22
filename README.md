@@ -6,7 +6,7 @@ This is a simple static page generator for Rails.
 
 ## Installation
 
-Download and install the 'portfolio' gem.
+TBD
 
 ## Usage
 
