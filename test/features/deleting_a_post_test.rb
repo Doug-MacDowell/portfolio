@@ -2,8 +2,14 @@ require "test_helper"
 
 feature "Deleting A Post" do
   scenario "the post is deleted with a click" do
-    visit new_post_path
-    page.must_have_content "Destroy"
-    page.wont_have_content "Delete"
+    # Given an existing post
+#    Post.create(title: "Becoming a Code Fellow", body: "Means striving for excellence.")
+    visit posts_path
+
+    # When the delete link is clicked
+    click_on "Destroy"
+
+    # Then the post is deleted
+    page.wont_have_content "Becoming a Code Fellow"
   end
 end
