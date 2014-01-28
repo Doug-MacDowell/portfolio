@@ -10,11 +10,11 @@ TBD - *This is a work in progress for a college programming class.*
 
 ## Usage
 
-After starting the app, navigate to _localhost:3000/posts_ in your browser to see a Listing of current posts.
+After starting the app, navigate to __localhost:3000/posts__ in your browser to see a **Listing** of current posts.
 
-Click the _New Post_ link to add a post.
+Click the __New Post__ link to add a post.
 
-Click the _Destroy_ link to delete a post.
+Click the __Destroy__ link to delete a post.
 
 ### Link to passing test:
 
