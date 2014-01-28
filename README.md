@@ -1,22 +1,28 @@
 # Portfolio
 
-This is a simple static page generator for Rails.
+This is a very basic posting site built using Rails 4.0.2.
 
-## Author:  Doug MacDowell
+### Author:  Doug MacDowell
 
-## Installation
+### Installation
 
-TBD
+TBD - *This is a work in progress for a college programming class.*
 
 ## Usage
 
-After starting the app, navigate to 0.0.0.0:3000 in your browser to see the message.
+After starting the app, navigate to 0.0.0.0:3000/posts in your browser to see a Listing of current posts.
+
+Click the New Post link to add a post.
+
+Click the Destroy link to delete a post.
 
 ## Link to passing test:
-https://www.dropbox.com/s/rjc7t7m858i7my4/Link%20to%20Screenshot%20from%20Week2%20assignment.png
 
+https://www.dropbox.com/s/0mvs9w28u50timl/Portfolio%20screenshot%20Week3%202014-01-27%2020%3A41%3A26.png
 
-## Contributing
+### Contributing
+
+*If this were a real-world project, follow these instructions to contribute:*
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
