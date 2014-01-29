@@ -1,6 +1,6 @@
 # Portfolio
 
-This is a basic posting site built using Rails 4.0.2.
+This is a very basic posting site built using Rails 4.0.2.
 
 ### Author:  Doug MacDowell
 
