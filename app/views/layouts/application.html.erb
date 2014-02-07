@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Portfolio</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled Portfolio" %></title>
+    <title>Portfolio</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "Check Postings", posts_path %></a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="divider"></li>
+          <li><%= link_to "Browse Around", root_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Communication" %></li>
+        </ul>
+      </section>
+  </nav>
+
+  <div class="row">
+    <div class="small-8 columns"><%= yield %></div>
+    <div class="small-4 columns">
+      <h3 class="subheader">About This Site</h3>
+    <I>This is a work in progress for a programming class. More will be added as we progress through the learning experience.</I>
+    </div>
+  </div>
+
+  </body>
 </html>
