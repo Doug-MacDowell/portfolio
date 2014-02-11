@@ -16,6 +16,9 @@ Portfolio::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  # Added a projects path
+  resources :projects
+
   # Example resource route with options:
   #   resources :products do
   #     member do

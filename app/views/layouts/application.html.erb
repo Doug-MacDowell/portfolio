@@ -11,6 +11,12 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <% flash.each do |key, value| %>
+    <div class="alert-box round <%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
+
   <body>
 
     <nav class="top-bar">
@@ -22,9 +28,9 @@
       <section class="top-bar-section">
         <ul class="right">
           <li class="divider"></li>
-          <li><%= link_to "Browse Around", root_path %></li>
+          <li><%= link_to "Projects", projects_path %></li>
           <li class="divider"></li>
-          <li><%= link_to "Communication" %></li>
+          <li><%= link_to "Future Use" %></li>
         </ul>
       </section>
   </nav>
