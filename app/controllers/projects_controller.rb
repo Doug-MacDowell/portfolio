@@ -14,12 +14,17 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Project has been created."
       redirect_to @project
     else
-      # we'll get to this later
+      flash[:error] = "Project could not be saved."
+      render :new
     end
   end
 
   def show
     @project = Project.find(params[:id])
+  end
+
+  def delete
+    # TBD
   end
 
 private
