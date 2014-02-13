@@ -4,8 +4,8 @@ gem 'rails', '4.0.2'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
-# gem 'foundation-rails'
-gem 'zurb-foundation'
+gem 'foundation-rails', '~>5.1.0.1'
+gem 'minitest-rails'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
@@ -15,8 +15,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test do
-  gem 'minitest-rails'
+group :development do
+  gem 'turn', '~>0.9.6'
 end
 
 group :test do
