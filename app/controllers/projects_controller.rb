@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+#  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -23,8 +24,19 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
   def delete
-    # TBD
+    # @project.destroy
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      redirect_to @project, notice: 'Project was successfully updated'
+    end
   end
 
 private
