@@ -20,5 +20,6 @@ group :development do
 end
 
 group :test do
+  gem 'turn', '~>0.9.6'
   gem 'minitest-rails-capybara'
 end
