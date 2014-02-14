@@ -1,6 +1,8 @@
 # Portfolio
 
-This is a very basic posting site built using Rails 4.0.2.
+This is a basic portfolio site built using Rails 4.0.2 and Zurb Foundation 5.
+
+Current features include a Posts page, and a Projects listing page.
 
 ### Author:  Doug MacDowell
 
@@ -10,19 +12,19 @@ TBD - *This is a work in progress for a college programming class.*
 
 ## Usage
 
-After starting the app, navigate to __localhost:3000/posts__ in your browser to see a **Listing** of current posts.
+The main page now has enhanced formatting, including a title bar with nav buttons.
 
-Click the __New Post__ link to add a post.
+The __Check Postings__ button will take you to the Posts page.
 
-Click the __Destroy__ link to delete a post.
+The __Projects__ button takes you to the listing of fictitious projects. From there, new projects can be added, and existing projects can be edited or deleted.
 
 ### Link to screenshot of passing tests:
 
-https://www.dropbox.com/s/0mvs9w28u50timl/Portfolio%20screenshot%20Week3%202014-01-27%2020%3A41%3A26.png
+https://www.dropbox.com/s/8suh2lnid8wkrlq/Portfolio_MVC_Breakdown_Tests%202014-02-13%2022%3A15%3A20.png
 
-### Link to screenshot of sample post index page:
+### Link to screenshot of project index page showing example projects:
 
-https://www.dropbox.com/s/nqzfsepdx1hyfvf/Sample%20posting%20index%202014-01-27%2021%3A18%3A30.png
+https://www.dropbox.com/s/e033id93vl14qma/Portfolio_MVC_Breakdown_Projects_page%202014-02-13%2022%3A19%3A06.png
 
 ### Contributing
 
