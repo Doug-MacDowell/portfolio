@@ -1,6 +1,5 @@
 require "test_helper"
 
-#feature "Projects::CreatingAProject" do
 feature "As the site owner, I want to add a portfolio item so that I can show off my work" do
   scenario "adding new projects" do
     visit projects_path
@@ -9,7 +8,21 @@ feature "As the site owner, I want to add a portfolio item so that I can show of
     fill_in "Technologies used", with: "Ruby, Rails, HTML5, CSS3"
     click_on "Create Project"
     page.text.must_include "Project has been created"
-    page.text.must_include "Doug MacDowell's Portfolio"
+    page.text.must_include "Doug MacDowell Portfolio"
     page.text.must_include "Rails"
   end
+
+  scenario "new project has invalid data" do
+# Given invalid project data is entered in a form
+    visit new_project_path
+    fill_in "Name", with: "Q"
+# When the form is submitted with a short name and missing technologies_used field
+    click_on "Create Project"
+# Then the form should be displayed again, with an error message
+    current_path.must_match /projects$/
+    page.text.must_include "Project could not be saved"
+    page.text.must_include "Name is too short"
+    page.text.must_include "Technologies used can't be blank"
+  end
+
 end
