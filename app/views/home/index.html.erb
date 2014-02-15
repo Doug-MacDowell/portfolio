@@ -1,19 +1,59 @@
-<!DOCTYPE html>
-<html>
-  <h3>Welcome aboard!</h3>
+<!doctype html>
+<html class="no-js" lang="en">
   <head>
-    <title>My Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
-    <h2>Doug MacDowell's Portfolio</h2>
 
-    <p>Occupation:  Software Configuration Engineer</p>
+    <div class="row">
+      <div class="large-12 columns">
+        <h1><strong>Doug MacDowell's Portfolio</strong></h1>
+        <p><strong>Welcome aboard!</strong></p>
+      </div>
+    </div>
 
-    <p>Current Employer:  <I>A Fortune 500 Freight Forwarding Company</I></p>
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
 
-    <p>Location:  The Pacific Northwest, U.S.A.</p>
+          <h3>I'm stoked you have visited my site!</h3>
+          <p><strong>Current Occupation:  Software Configuration Engineer</strong></p>
+          <p><strong>Background and Skills:  Enterprise software deployment and configuration, Unix/Linux Systems Administration, shell scripting, Ruby, Expect, Chef<sup>TM</sup></strong></p>
+          <p><strong>Current Employer:  <I>A Fortune 500 Freight Forwarding Company</I></strong></p>
+          <p><strong>Location:  The Pacific Northwest, U.S.A.</strong></p>
+        </div>
+      </div>
+    </div>
 
-    <p>Background and Skills:  Enterprise software deployment and configuration, Unix/Linux Systems Administration, shell scripting, Ruby, Expect, Chef<sup>TM</sup></p>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
 
+          <h4>This site was built using Foundation 5</h4>
+	        <p>Once you've looked around, you should also check out:</p>
+	        <div class="row">
+	        	<div class="large-4 medium-4 columns">
+	    		   <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
+	    	    </div>
+	        	<div class="large-4 medium-4 columns">
+	        		<p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
+	        	</div>
+	        	<div class="large-4 medium-4 columns">
+	        		<p><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping them on Twitter if you have questions about Foundation.</p>
+	        	</div>
+					</div>
+      	</div>
+      </div>
+    </div>
+
+    <script src="javascripts/vendor/jquery.js"></script>
+    <script src="javascripts/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
