@@ -1,4 +1,8 @@
-<h2>Projects</h2>
+<h1><strong>Listing of Projects</strong></h1>
+
+<p>
+<%= link_to 'Back to Home', root_path, class: "button tiny" %>
+</p>
 
 <% @projects.each do |project| %>
   <div class="project" id="<%= dom_id(project) %>">
@@ -15,6 +19,3 @@
 <br />
 <%= link_to 'New project', new_project_path, class: "button round" %>
 <br />
-
-<br />
-<%= link_to 'Back to Home', root_path, class: "button tiny"%>
