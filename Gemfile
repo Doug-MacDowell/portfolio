@@ -10,8 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'foundation-rails', github: 'codefellows/foundation-rails'
-# gem 'foundation-rails', '~>5.1.0.1'
+gem 'foundation-rails', '~> 5.1.0.1'
 
 group :doc do
   gem 'sdoc', require: false
@@ -19,7 +18,6 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'turn', '~>0.9.6'
 end
 
 group :test do
