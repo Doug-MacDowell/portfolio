@@ -1,0 +1,4 @@
+deploy:
+  provider: heroku
+  app: my-rad-portfolio # optional if it's the same as your repo name
+  api_key: "scyA6yje67zq47NqCRFV"
