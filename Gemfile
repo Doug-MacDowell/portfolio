@@ -23,6 +23,7 @@ group :development do
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'turn', '~>0.9.6'
   gem 'launchy'
   gem 'minitest-rails-capybara'
