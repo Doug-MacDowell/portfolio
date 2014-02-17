@@ -11,13 +11,15 @@ gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails', '~> 5.1.0.1'
+gem 'pg'
+
 
 group :doc do
   gem 'sdoc', require: false
 end
 
 group :development do
-  gem 'sqlite3'
+  gem 'travis', '~>1.6.7'
 end
 
 group :test do
@@ -28,5 +30,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
