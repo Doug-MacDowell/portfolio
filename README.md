@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Doug-MacDowell/antenna-calculator.png)](https://travis-ci.org/Doug-MacDowell/portfolio)
+
 # Portfolio
 
 This is a basic portfolio site built using Rails 4.0.2 and Zurb Foundation 5.
