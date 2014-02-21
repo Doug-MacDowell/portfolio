@@ -9,4 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Portfolio::Application.config.secret_key_base = 'f83eaa8922772325eb4bd46bc254c3df3542e2ffaad9f5e56e1451ca569d108838f1a4c217dcc04a9aec0b4de972bac5c2c03f58cff6f8ac7526b52e2f1c6785'
+#Portfolio::Application.config.secret_key_base = '18e6dc78dfd19fe6d42b9cba029ced479c3dd181772db8f141c2515b6b661aefa6f17465852129aa37cb51a1368aec01c94e3e3ae92120ad3e996b66abed2781'
+
+Portfolio::Application.config.secret_key_base = '945ffb644a5cbb69fd8bc5cf851fc39d5bbc6eb8f155fd78b89df227a5228eec3a4b39202b1e1f91c14216dc65112a9aaada889976e930787a4c4fccd8bf4963'
