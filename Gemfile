@@ -20,13 +20,14 @@ end
 
 group :development do
   gem 'travis', '~>1.6.7'
-  gem 'devise'
+#  gem 'devise'
 end
 
 group :test do
   gem 'sqlite3'
   gem 'turn', '~>0.9.6'
   gem 'launchy'
+  gem 'devise'
   gem 'minitest-rails-capybara'
 end
 
