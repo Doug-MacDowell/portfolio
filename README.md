@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Doug-MacDowell/portfolio)]
+[![Build Status](https://travis-ci.org/Doug-MacDowell/portfolio.png)](https://travis-ci.org/Doug-MacDowell/portfolio)
 
 # Portfolio
 
