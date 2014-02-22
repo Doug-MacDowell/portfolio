@@ -20,6 +20,7 @@ end
 
 group :development do
   gem 'travis', '~>1.6.7'
+  gem 'devise'
 end
 
 group :test do

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -25,16 +26,20 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    # current_user.posts << @post
     respond_to do |format|
       if @post.save
+        current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
+        # current_user.posts << @post
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
+      # current_user.posts << @post
     end
+    # current_user.posts << @post
   end
 
   # PATCH/PUT /posts/1
@@ -42,8 +47,10 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
+      #  current_user.posts << @post
       else
         format.html { render action: 'edit' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
