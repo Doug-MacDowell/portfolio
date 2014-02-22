@@ -18,21 +18,28 @@
     </div>
   <% end %>
 
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
   <body>
 
     <nav class="top-bar">
       <ul class="title-area">
         <li class="name">
           <h1><%= link_to "Postings", posts_path %></a></h1>
-          <h1><%= link_to "Projects", projects_path %></h1>
         </li>
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-          <li class="divider"></li>
           <li><%= link_to "Projects", projects_path %></li>
           <li class="divider"></li>
-          <li><%= link_to "Future Use" %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li class="divider"></li>
+          <li><% if current_user.present? %></li>
+  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+              <% end %>
         </ul>
       </section>
   </nav>
@@ -45,8 +52,8 @@
     </div>
   </div>
 
-  <script src="/js/vendor/jquery.js"></script>
-  <script src="/js/foundation.min.js"></script>
+  <script src="/assets/jquery.js"></script>
+  <script src="/assets/foundation.min.js"></script>
   <script>
     $(document).foundation();
   </script>
