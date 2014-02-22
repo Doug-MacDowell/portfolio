@@ -20,9 +20,9 @@ The __Check Postings__ button will take you to the Posts page.
 
 The __Projects__ button takes you to the listing of fictitious projects. From there, new projects can be added, and existing projects can be edited or deleted.
 
-### Link to screenshot of passing tests:
+### Link to screenshot of passing Rails Authentication tests:
 
-https://www.dropbox.com/s/8suh2lnid8wkrlq/Portfolio_MVC_Breakdown_Tests%202014-02-13%2022%3A15%3A20.png
+https://www.dropbox.com/s/ngf05qyoyy6h2h7/RailsAuthenticationRakeTests%202014-02-22%2013%3A54%3A35.png
 
 ### Link to screenshot of project index page showing example projects:
 
