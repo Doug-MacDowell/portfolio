@@ -33,4 +33,7 @@ Portfolio::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # DM added this
+  config.assets.compile = true
 end
