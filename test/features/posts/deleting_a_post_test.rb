@@ -3,6 +3,7 @@ require "test_helper"
 feature "Deleting A Post" do
   scenario "the post is deleted with a click" do
     # Given an existing post
+    sign_in
     Post.create(title: "Becoming a Code Fellow", body: "Means striving for excellence.")
     visit posts_path
 
