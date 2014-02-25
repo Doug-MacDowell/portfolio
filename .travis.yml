@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  -2.1.0
+  "2.1.0"
 deploy:
   provider: heroku
   app: my-rad-portfolio # optional if it's the same as your repo name
