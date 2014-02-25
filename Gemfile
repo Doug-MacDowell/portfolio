@@ -19,6 +19,7 @@ group :doc do
 end
 
 group :development do
+  gem 'devise'
   gem 'travis', '~>1.6.7'
 end
 
@@ -26,7 +27,7 @@ group :test do
   gem 'sqlite3'
   gem 'turn', '~>0.9.6'
   gem 'launchy'
-  gem 'devise'
+#  gem 'devise'
   gem 'minitest-rails-capybara'
 end
 
