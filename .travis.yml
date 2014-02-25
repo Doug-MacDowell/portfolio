@@ -3,6 +3,6 @@ rvm:
   "2.1.0"
 deploy:
   provider: heroku
-  app: my-rad-portfolio # optional if it's the same as your repo name
+  app: my-rad-portfolio # optional if the same as your repo name
   api_key: "scyA6yje67zq47NqCRFV"
   run: "travis login"
