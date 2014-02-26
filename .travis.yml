@@ -1,8 +1,9 @@
 language: ruby
-rvm:
-  "2.1.0"
+rvm: 2.1.0
 deploy:
   provider: heroku
-  app: my-rad-portfolio # optional if the same as your repo name
-  api_key: "scyA6yje67zq47NqCRFV"
-  run: "travis login"
+  api_key:
+    secure: BWU9he5TO9+bvJfU9kfH+5KIWJ11YaSbHNb3df0P719RlzIvBUJL/7NTpzEe4g1ZHhDy/ZtuPy7BbqPfuEbEH3d7QGV5H6ti1Sn5g/fl/rQpWEnXaQ9mViOsAIioP29N/3aFFKFFp1O0lsD8FStsqdH5rYUNcdBYiZQxbDB9FfY=
+  app: portfolio
+  on:
+    repo: Doug-MacDowell/portfolio
