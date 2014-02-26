@@ -5,6 +5,6 @@ deploy:
   provider: heroku
   api_key:
     secure: ejkPaA6V3vZKzeSTuP6ClyBCSG+E1uXB2oR8HqJbpMMClWHgOCdEYGREHSbhgFPvv5wmtcQjvxCn4SUGiese7gV9gv6VDlfiHFijVgFsexJo9GjBmfKOQmXPgPgS/aLq+YWkDvBtyOfVIwB14Y5ahSppNPo9Fok3w5uOURMnAAs=
-  app: portfolio
+  app: my-rad-portfolio
   on:
     repo: Doug-MacDowell/portfolio
