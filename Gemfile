@@ -9,6 +9,7 @@ gem 'minitest-rails'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
+gem 'devise'
 gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails', '~> 5.1.0.1'
 gem 'pg'
@@ -19,7 +20,6 @@ group :doc do
 end
 
 group :development do
-  gem 'devise'
   gem 'travis', '~>1.6.7'
 end
 
@@ -27,7 +27,6 @@ group :test do
   gem 'sqlite3'
   gem 'turn', '~>0.9.6'
   gem 'launchy'
-#  gem 'devise'
   gem 'minitest-rails-capybara'
 end
 
