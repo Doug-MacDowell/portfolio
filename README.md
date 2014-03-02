@@ -10,7 +10,7 @@ Current features include a Posts page, and a Projects listing page.
 
 ### Installation
 
-TBD - *This is a work in progress for a college programming class.*
+TBD - *This is a work in progress for a Rails programming class.*
 
 ## Usage
 
