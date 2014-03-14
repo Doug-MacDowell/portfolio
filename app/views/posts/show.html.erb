@@ -15,5 +15,15 @@
   <%= @post.author.email %>
 </p>
 
+<p id="status">
+  <b>Status:</b>
+  <%= @post.published? ? "Published" : "Unpublished" %>
+</p>
+
+<div class="field">
+  <%= f.label :published %>
+  <%= f.check_box :published %>
+</div>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path, class: "button radius" %>
