@@ -4,4 +4,26 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts, foreign_key: "author_id"
+
+  # new stuff added 3/16
+  def author?
+    role == "author"
+  end
+
+  def editor?
+    role == "editor"
+  end
+
+end
+
+class NullUser
+
+  def author?
+    nil
+  end
+
+  def editor?
+    nil
+  end
+
 end
