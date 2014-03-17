@@ -14,10 +14,11 @@ feature "Creating a post" do
 
     # Then a new post should be created and displayed
     page.text.must_include "Post was successfully created"
-    page.text.must_include "Status:Unpublished"
+    page.text.must_include "Status: Unpublished"
     page.text.must_include posts(:cr).title
     page.has_css? "#author"
-    page.text.must_include users(:test).email
+  # page.text.must_include users(:test).email
+    page.text.must_include users(:author).email
   end
 
   scenario "unauthenticated site visitors cannot visit new_post_path" do
@@ -29,7 +30,7 @@ feature "Creating a post" do
     # When I visit the blog index page
     visit posts_path
     # Then I should not see the "New Post" button
-    page.wont_have_link "New Post"
+    page.wont_have_button "New Post"
   end
 
   scenario "authors can't publish" do
@@ -40,7 +41,7 @@ feature "Creating a post" do
     visit new_post_path
 
     # There is no checkbox for published
-    page.wont_have_field('published')
+    page.wont_have_field('Published')
   end
 
   scenario "editors can publish" do
@@ -51,7 +52,7 @@ feature "Creating a post" do
     visit new_post_path
 
     # There is a checkbox for published
-    page.must_have_field('Published')
+     page.must_have_field('Published')
 
     # When I submit the form
     fill_in "Title", with: posts(:cr).title
