@@ -1,15 +1,3 @@
-test:
-  email: test@test.com
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-
-frick:
-  email: frick@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-
-frack:
-  email: frack@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-
 author:
   email: author@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
@@ -17,5 +5,10 @@ author:
 
 editor:
   email: editor@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  role: editor
+
+test:
+  email: test@testblah.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
   role: editor
