@@ -13,7 +13,7 @@ gem 'devise'
 gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails', '~> 5.1.0.1'
 gem 'pg'
-
+gem 'pundit'
 
 group :doc do
   gem 'sdoc', require: false
