@@ -16,14 +16,13 @@ class User < ActiveRecord::Base
 
 end
 
-class NullUser
+#class NullUser
 
-  def author?
-    nil
-  end
+ # def author?
+ #   nil
+ # end
 
-  def editor?
-    nil
-  end
-
-end
+#def editor?
+ #   nil
+  #end
+#end
