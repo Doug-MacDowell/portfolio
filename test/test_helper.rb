@@ -10,6 +10,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  # include Devise::TestHelpers
 
   def sign_in(role = :editor)
     visit new_user_session_path
