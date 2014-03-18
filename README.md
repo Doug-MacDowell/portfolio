@@ -5,6 +5,7 @@
 This is a basic portfolio site built using Rails 4.0.2 and Zurb Foundation 5.
 
 Current features include a Posts page, and a Projects listing page.
+Authentication using Pundit has been recently added.
 
 ### Author:  Doug MacDowell
 
