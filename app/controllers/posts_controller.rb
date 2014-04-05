@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  attr_accessor :policy, :user, :post
+
   # GET /posts
   # GET /posts.json
   def index
@@ -26,8 +28,10 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    # current_user.posts << @post
     respond_to do |format|
       if @post.save
+        current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
         current_user.posts << @post
@@ -36,7 +40,6 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-    # current_user.posts << @post
   end
 
   # PATCH/PUT /posts/1
@@ -44,9 +47,9 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+      #  current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
-        current_user.posts << @post
       else
         format.html { render action: 'edit' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -65,15 +68,15 @@ class PostsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
-  # Only allow the white list through.
-  def post_params
-    params.require(:post).permit(*policy(@post || Post).permitted_attributes)
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:title, :body, (:published if current_user.role == "editor"))
+      #params.require(:post).permit(policy(Post).permitted_attributes)
+    end
 
 end
