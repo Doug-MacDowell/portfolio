@@ -34,3 +34,8 @@
   </tbody>
 </table>
 
+<br>
+
+<% if current_user %>
+  <%= link_to 'Submit New Post', new_post_path, class: "button radius"%>
+<% end %>
