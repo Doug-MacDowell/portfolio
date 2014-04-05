@@ -22,6 +22,7 @@ class PostPolicy < ApplicationPolicy
 
     def update?
       @post.author == @user || @user.editor?
+      #user.admin? or not post.published?
     end
 
     def create?
