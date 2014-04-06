@@ -7,7 +7,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+   # @posts = Post.all
+   @posts = policy_scope(Post)
   end
 
   # GET /posts/1
@@ -30,7 +31,6 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
-       # current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
         current_user.posts << @post
