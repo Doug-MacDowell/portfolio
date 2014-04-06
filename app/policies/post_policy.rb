@@ -36,4 +36,10 @@ class PostPolicy < ApplicationPolicy
     def destroy?
       @user.editor?
     end
+
+    def index?
+      if ! @user.nil?
+        @user.editor? || @user.author?
+      end
+    end
 end
