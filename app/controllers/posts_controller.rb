@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post)
   end
 
   # GET /posts/1
@@ -28,10 +28,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    # current_user.posts << @post
     respond_to do |format|
       if @post.save
-        current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
         current_user.posts << @post
@@ -47,7 +45,6 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-      #  current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -73,7 +70,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body, (:published if current_user.role == "editor"))
       #params.require(:post).permit(policy(Post).permitted_attributes)
