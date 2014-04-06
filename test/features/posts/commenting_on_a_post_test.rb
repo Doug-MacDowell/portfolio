@@ -2,7 +2,8 @@ require "test_helper"
 
 feature "Commenting On A Post" do
   scenario "submit comments on an existing post" do
-    # Given an existing post
+    # Given an existing post, I want to write a comment from a blog post page
+    # so that I can troll the author
     sign_in
     post = Post.create(title: "Becoming a Code Fellow", body: "Means striving for excellence.")
     visit edit_post_path(post)
@@ -16,6 +17,9 @@ feature "Commenting On A Post" do
     page.text.must_include "Web Developer"
   end
 
+end
+
+feature "Approving A Post" do
   scenario "authors can approve" do
     # Given an author's account
     sign_in(:author)
@@ -57,5 +61,4 @@ feature "Commenting On A Post" do
     # page.text.must_include "Status: Published"
     visit posts_path
   end
-
 end
