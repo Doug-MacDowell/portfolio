@@ -21,7 +21,7 @@ class PostPolicy < ApplicationPolicy
     end
 
     def update?
-      @post.author == @user || @user.editor?
+      @user.author? || @user.editor?
       #user.admin? or not post.published?
     end
 
