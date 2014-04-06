@@ -47,6 +47,7 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
+        current_user.posts << @post
       else
         format.html { render action: 'edit' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -73,7 +74,8 @@ class PostsController < ApplicationController
     # Only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body, (:published if current_user.role == "editor"))
-      #params.require(:post).permit(policy(Post).permitted_attributes)
+      # params.require(:post).permit(policy(Post).permitted_attributes)
+      # params.require(:post).permit(*policy(@post || Post).permitted_attributes)
     end
 
 
