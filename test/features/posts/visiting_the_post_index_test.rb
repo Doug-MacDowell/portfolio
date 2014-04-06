@@ -9,7 +9,7 @@ feature "Visiting The Post Index" do
   visit posts_path
 
 # Then the existing posts should be loaded
-  page.text.must_include "Becoming a Code Fellow"
+  page.text.must_include "Means striving for excellence"
 
   end
 end
