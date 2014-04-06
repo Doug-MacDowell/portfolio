@@ -29,6 +29,10 @@ class PostPolicy < ApplicationPolicy
       @user.author? || @user.editor?
     end
 
+    def approve?
+      @user.author? || @user.editor?
+    end
+
     def publish?
       @user.editor?
     end
