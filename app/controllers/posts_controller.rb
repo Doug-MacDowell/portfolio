@@ -74,6 +74,7 @@ class PostsController < ApplicationController
   # Only allow the white list through.
   def post_params
     params.require(:post).permit(*policy(@post || Post).permitted_attributes)
+    #params.require(:post).permit(:title, :body, (:published if current_user.role == "editor"))
   end
 
 end
