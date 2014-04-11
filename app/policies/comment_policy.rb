@@ -1,7 +1,16 @@
 class CommentPolicy < ApplicationPolicy
 
-#  def create?
-#   !!user
-#  end
+  attr_reader  :comment, :user, :post
+
+  def create?
+  end
+
+  def update?
+    @user.author? || @user.editor?
+  end
+
+  def approved?
+    @user.author? || @user.editor?
+  end
 
 end

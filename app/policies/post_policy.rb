@@ -1,13 +1,6 @@
 class PostPolicy < ApplicationPolicy
-  class Scope < Struct.new(:user, :scope)
-    def resolve
-      if user
-        return scope.where(author_id: user.id) if user.author?
-        return scope.all if user.editor?
-      end
-      scope.where(published: true)
-    end
-  end
+
+  attr_reader :user, :post
 
     def initialize(user, post)
       @user = user || NullUser.new
@@ -15,30 +8,40 @@ class PostPolicy < ApplicationPolicy
     end
 
     def permitted_attributes
-      return [] if user.nil?
-      attributes = [:title, :body]
-      attributes << [:published] if @user.editor?
+      if user.editor? || user.author?
+        [:title, :body, :published, :tag_list]
+      else
+        [:tag_list]
+      end
     end
 
     def update?
       @user.author? || @user.editor?
-      #user.admin? or not post.published?
     end
 
     def create?
-      @user.author? || @user.editor?
+      if user.present?
+        @user.author? || @user.editor?
+      end
     end
+
+    alias_method :update?, :create?
 
     def approve?
       @user.author? || @user.editor?
     end
 
     def publish?
-      @user.editor?
+      if user.present?
+        user.editor?
+      end
     end
 
     def destroy?
-      @user.editor?
+      if user.present?
+        return true if user.editor?
+        user.id == post.author_id
+      end
     end
 
     def index?
@@ -46,4 +49,17 @@ class PostPolicy < ApplicationPolicy
         @user.editor? || @user.author?
       end
     end
+
+  class Scope < Struct.new(:user, :scope)
+    def resolve
+      if user.editor?
+        scope.all
+      elsif user.author?
+        scope.where(author_id: user.id)
+      else
+        scope.where(published: true)
+      end
+    end
+  end
+
 end
