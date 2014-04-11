@@ -1,20 +1,25 @@
 class CommentsController < ApplicationController
 
-  attr_accessor :policy, :user, :post
-
-  def create
-    @comment = Comment.new(comment_params)
-
-    if @comment.save
-      redirect_to request.referer, notice: "Successfully created comment!"
-    else
-      redirect_to request.referer, notice: "Couldn't create comment."
-    end
-  end
+   def create
+     @comment = Comment.new(comment_params)
+     if @comment.save
+       flash[:notice] = "This comment is awaiting moderation"
+       redirect_to post_path(@comment.post_id)
+     else
+       @post = Post.find(@comment.post_id)
+       render template: "posts/show"
+     end
+   end
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:content, :commentable_id, :commentable_type)
-  end
+   def comment_params
+     params.require(:comment).permit(:author,
+                                    :author_url,
+                                    :author_email,
+                                    :content,
+                                    :referrer,
+                                    :post_id)
+   end
+
 end
