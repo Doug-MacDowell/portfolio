@@ -1,6 +1,6 @@
 <h1><strong>Post Listing</strong></h1>
 
-<p>
+<p align="left">
 <%= link_to 'Back to Home', root_path, class: "button tiny" %>
 </p>
 
@@ -9,7 +9,7 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
-      <th></th>
+      <th>Actions</th>
       <th></th>
       <th></th>
     </tr>
@@ -39,3 +39,5 @@
 <% if current_user %>
   <%= link_to 'Submit New Post', new_post_path, class: "button radius"%>
 <% end %>
+
+
