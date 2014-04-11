@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts, foreign_key: "author_id"
 
-  # new stuff added 3/16
+  # set up some roles
   def author?
     role == "author"
   end
@@ -15,14 +15,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
-#class NullUser
-
- # def author?
- #   nil
- # end
-
-#def editor?
- #   nil
-  #end
-#end
