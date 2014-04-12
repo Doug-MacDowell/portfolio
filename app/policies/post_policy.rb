@@ -19,6 +19,11 @@ class PostPolicy < ApplicationPolicy
       @user.author? || @user.editor?
     end
 
+  #  this is from pundit readme
+  #  def update?
+  #    user.author? or not post.published?
+  #  end
+
     def create?
       if user.present?
         @user.author? || @user.editor?
