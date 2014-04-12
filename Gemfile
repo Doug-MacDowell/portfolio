@@ -14,6 +14,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails', '~> 5.1.0.1'
 gem 'pg'
 gem 'pundit'
+gem 'omniauth-twitter'
+gem 'figaro'
 
 group :doc do
   gem 'sdoc', require: false
