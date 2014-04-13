@@ -7,20 +7,19 @@ class User < ActiveRecord::Base
 
   # set up some roles
   def author?
-    role == "author"
+    role == 'author'
   end
 
   def editor?
-    role == "editor"
+    role == 'editor'
   end
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.username = auth.info.nickname
-      # user.username = auth.info.username
-      user.email = "#{user.name}-CHANGEME@twitter.example.com"
+      user.username = auth.info.username
+      user.email = "#{user.username}-CHANGEME@twitter.example.com"
     end
   end
 
