@@ -1,23 +1,41 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
-  attr_accessor :policy, :user, :post
+#  before_action :set_comment, only: [:approve, :destroy]
+#  before_action :set_post, only: [:create, :approve, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = policy_scope(Post)
+    if current_user
+      @posts = policy_scope(Post)
+    else
+      @posts = Post.where(published: true)
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment = Comment.new
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @post }
+    end
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @post }
+    end
   end
 
   # GET /posts/1/edit
@@ -28,11 +46,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    authorize @post
     respond_to do |format|
       if @post.save
+        current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
-        current_user.posts << @post
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -43,6 +62,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    authorize @post
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -58,6 +78,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    authorize @post
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url }
@@ -65,18 +86,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def publish
+    @post = Post.find(params[:id])
+    authorize @post, :update?
+    @post.publish!
+    redirect_to @post
+ end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title, :body, (:published if current_user.role == "editor"))
-      # params.require(:post).permit(policy(Post).permitted_attributes)
-      # params.require(:post).permit(*policy(@post || Post).permitted_attributes)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
+  def post_params
+    params.require(:post).permit(policy(Post).permitted_attributes)
+  end
 
 end

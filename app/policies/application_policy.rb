@@ -19,6 +19,10 @@ class ApplicationPolicy
     false
   end
 
+  def approve?
+    false
+  end
+
   def new?
     create?
   end

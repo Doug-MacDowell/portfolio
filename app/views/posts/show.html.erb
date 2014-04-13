@@ -1,12 +1,12 @@
-<%= form_for(@post) do |f| %>
   <p id="notice"><%= notice %></p>
-  <p>
-    <strong>Title:</strong>
+
+  <p id="title">
+    <b>Title:</b>
     <%= @post.title %>
   </p>
 
-  <p>
-    <strong>Body: </strong>
+  <p id="body">
+    <b>Body:</b>
     <%= @post.body %>
   </p>
 
@@ -20,7 +20,15 @@
     <%= @post.published? ? "Published" : "Unpublished" %>
   </p>
 
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path, class: "button radius" %>
+  <h5><b><font color="green">Comments for this post</h5></b></font>
+    <%= render "comments/comment" %>
 
-<% end %>
+  <h5><I>Add a Comment:</I></h5>
+    <%= render "comments/form" %>
+  <br><b>
+  <% if policy(@post).update? %>
+    <%= link_to 'Edit Post', edit_post_path(@post) %> |
+  <% end %>
+  <%= link_to 'Listing', posts_path %> |
+  <%= link_to 'Home', root_path %>
+  </b></br>

@@ -1,10 +1,14 @@
 Portfolio::Application.routes.draw do
-  devise_for :users
-  resources :posts
+  devise_for :users, controllers: {registrations: "users/registrations",
+                           passwords: "users/passwords",
+                           omniauth_callbacks: "omniauth_callbacks"}
+
+  resources :posts do
+    resources :comments
+  end
 
   root 'home#index'
 
-  # Added a projects path
   resources :projects
 
 end

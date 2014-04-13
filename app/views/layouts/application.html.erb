@@ -27,6 +27,8 @@
       <ul class="title-area">
         <li class="name">
           <h1><%= link_to "Postings", posts_path %></a></h1>
+          <li class="divider"></li>
+
         </li>
       </ul>
       <section class="top-bar-section">
@@ -39,6 +41,8 @@
   <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
               <% else %>
               <li><%= link_to "Sign In", new_user_session_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
               <% end %>
         </ul>
       </section>

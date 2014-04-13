@@ -1,7 +1,7 @@
 cf:
   title: Code Fellows
   body: Means striving for excellence
-  author: test
+  author: editor
   published: true
 
 cr:
@@ -14,4 +14,4 @@ http:
   title: Intro to HTTP
   body: It's all about the request-response cycle!
   author: test
-  published: true
+  published: false

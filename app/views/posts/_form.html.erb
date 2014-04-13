@@ -2,7 +2,6 @@
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
       <% @post.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -20,8 +19,7 @@
     <%= f.text_area :body %>
   </div>
 
-  <% if PostPolicy.new(current_user, @post).publish? %>
-    <div class="field">
+  <% if policy(Post).publish? %>
       <div class="row collapse">
         <div class="small-3 columns">
           <%= f.label :published, class: "right inline", title: "Is this post published?", data: {tooltip: true} %><br>
@@ -31,7 +29,6 @@
           <%= f.check_box :published %>
         </div>
       </div>
-    </div>
   <% end %>
 
   <div class="actions">
