@@ -7,6 +7,8 @@ This is a basic portfolio site built using Rails 4.0.2 and Zurb Foundation 5.
 Current features include a Posts page, and a Projects listing page.
 Authentication using Pundit has been recently added, and comments can now be submitted on posts.
 
+Twitter users now have the ability to sign in and contribute comments to posts.
+
 ### Author:  Doug MacDowell
 
 ### Installation
@@ -20,14 +22,6 @@ The main page now has enhanced formatting, including a title bar with nav button
 The __Postings__ button will take you to the Posts page.
 
 The __Projects__ button takes you to the listing of fictitious projects. From there, new projects can be added, and existing projects can be edited or deleted.
-
-### Link to screenshot of passing Rails Authentication tests:
-
-https://www.dropbox.com/s/ngf05qyoyy6h2h7/RailsAuthenticationRakeTests%202014-02-22%2013%3A54%3A35.png
-
-### Link to screenshot of project index page showing example projects:
-
-https://www.dropbox.com/s/e033id93vl14qma/Portfolio_MVC_Breakdown_Projects_page%202014-02-13%2022%3A19%3A06.png
 
 ### Link to screenshot of application running on Heroku:
 
