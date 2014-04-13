@@ -3,7 +3,8 @@ class PostPolicy < ApplicationPolicy
   attr_reader :user, :post
 
     def initialize(user, post)
-      @user = user || NullUser.new
+      #@user = user || NullUser.new
+      @user = user
       @post = post
     end
 
@@ -49,11 +50,11 @@ class PostPolicy < ApplicationPolicy
       end
     end
 
-    def index?
-      if ! @user.nil?
-        @user.editor? || @user.author?
-      end
-    end
+  #  def index?
+  #    if ! @user.nil?
+  #      @user.editor? || @user.author?
+  #    end
+  #  end
 
   class Scope < Struct.new(:user, :scope)
     def resolve
