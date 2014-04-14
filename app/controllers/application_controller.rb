@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  # added this 4/14 for fixing users error
+  #before_action :configure_permitted_parameters, if: :devise_controller?
+
   after_action :verify_authorized, :except => :index
   after_action :verify_policy_scoped, :only => :index
 

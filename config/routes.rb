@@ -1,5 +1,6 @@
 Portfolio::Application.routes.draw do
-  devise_for :users, controllers: {registrations: "users/registrations",
+# devise_for :users, controllers: {registrations: "users/registrations",
+  devise_for :users, controllers: {registrations: "devise/registrations",
                            passwords: "users/passwords",
                            omniauth_callbacks: "omniauth_callbacks"}
 
