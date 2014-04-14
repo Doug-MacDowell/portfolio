@@ -10,8 +10,8 @@ feature("As a site visitor I want to be able to sign up for an account
 
     # When I register with valid info
     fill_in "Email", with: "dude@test.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    fill_in "Password", with: "pass&word"
+    fill_in "Password confirmation", with: "pass&word"
     click_on "Sign up"
 
     # Then I should be signed in

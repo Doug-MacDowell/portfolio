@@ -12,7 +12,8 @@ class PostPolicy < ApplicationPolicy
       if user.editor? || user.author?
         [:title, :body, :published, :tag_list]
       else
-        [:tag_list]
+        # [:tag_list]
+        [:title, :body, :tag_list]
       end
     end
 
