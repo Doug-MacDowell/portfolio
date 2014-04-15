@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
    end
 
    def create
-     @comment = Comment.new(comment_params)
+   #  @comment = Comment.new(comment_params)
+     @comment = @commentable.comments.new(comment_params)
      if @comment.save
        flash[:notice] = "This comment is awaiting moderation"
        redirect_to @commentable
