@@ -1,9 +1,10 @@
 class Post < ActiveRecord::Base
-  belongs_to :author, class_name: "User"
+  attr_accessible :content
 
-  #has_many :comments, as: :commentable
+  belongs_to :author, class_name: "User"
+  has_many :comments, as: :commentable
   scope :published, -> { where(published: true) }
-  has_many :comments, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   validates :title, presence: true, length: { minimum: 5 }
 
 
