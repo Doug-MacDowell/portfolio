@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
                                     :author_email,
                                     :content,
                                     :referrer,
-                                    :post_id)
+                                    :commentable_id)
   end
 
 
