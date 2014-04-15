@@ -9,6 +9,7 @@
       <th>Approved</th>
     </tr>
   </thead>
+
   <% @comments.each do |comment| %>
     <tr <%= raw 'class="warning"' unless comment.approved? %> id="<%= dom_id(comment) %>">
       <td><%= comment.author%></td>
