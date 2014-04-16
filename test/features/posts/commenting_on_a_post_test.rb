@@ -4,7 +4,7 @@ feature "Commenting On A Post" do
    scenario "submit comments on an existing post" do
      # Given an existing post, I want to write a comment from a blog post page
      # so that I can troll the author
-     sign_in(:editor)
+     sign_in
      visit new_post_path
      fill_in "Title", with: posts(:cr).title
      fill_in "Body", with: posts(:cr).body
@@ -12,9 +12,10 @@ feature "Commenting On A Post" do
      click_on "Create Post"
 
      # When I submit comment data on the existing post
-     fill_in "Your name", with: "SomeRakeGuy"
-     fill_in "email address", with: "somerakeguy@test.co"
-     fill_in "Your Comment", with: "So you think you are a Web Developer!"
+     fill_in "Your name", with: comments(:lana).author
+     fill_in "Your email", with: comments(:lana).author_email
+     fill_in "Your URL", with: comments(:lana).author_url
+     fill_in "Your Comment", with: comments(:lana).content
 
      # When I submit the form
      click_on "Submit comment for approval"
