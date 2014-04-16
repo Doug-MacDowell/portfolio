@@ -9,6 +9,7 @@
     </tr>
   </thead>
 
+
   <% @comments.each do |comment| %>
     <tr <%= raw 'class="warning"' unless comment.approved? %> id="<%= dom_id(comment) %>">
       <td><%= comment.author%></td>
@@ -34,4 +35,5 @@
       <td class="comment_content" colspan="7"><%= comment.content %></td>
     </tr>
     <% end %>
+
 </table>
