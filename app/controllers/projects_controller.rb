@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+  #  @project = Project.find(params[:id])
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
