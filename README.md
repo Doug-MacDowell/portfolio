@@ -7,7 +7,7 @@ This is a basic portfolio site built using Rails 4.0.2 and Zurb Foundation 5.
 Current features include a Posts page, and a Projects listing page.
 Authentication using Pundit has been recently added, and comments can now be submitted on posts.
 
-NEW: Polymorphic associations are now utilized so that comments can be submitted on projects as well as posts.
+NEW: Polymorphic associations are now utilized so that comments can be submitted on projects, as well as for posts.
 
 Twitter users now have the ability to sign in and contribute comments.
 
