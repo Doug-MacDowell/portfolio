@@ -19,14 +19,25 @@ class PostsController < ApplicationController
     end
   end
 
+
   # GET /posts/1
   # GET /posts/1.json
+  # This is the original method before adding polymorphism
+  # def show
+  #   @comment = Comment.new
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.json { render json: @post }
+  #   end
+  # end
+
+
+  # New show method after adding polymorphism
   def show
+    @post = Post.find(params[:id])
+    @commentable = @post
+    @comments = @commentable.comments
     @comment = Comment.new
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
   end
 
   # GET /posts/new
@@ -46,13 +57,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    authorize @post
+    #authorize @post
     respond_to do |format|
       if @post.save
         current_user.posts << @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
-
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -68,6 +78,7 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
+        current_user.posts << @post
       else
         format.html { render action: 'edit' }
         format.json { render json: @post.errors, status: :unprocessable_entity }

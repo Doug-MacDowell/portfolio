@@ -16,9 +16,10 @@ feature "Creating a post" do
     page.text.must_include "Post was successfully created"
     page.text.must_include "Status: Unpublished"
     page.has_css? "#author"
+    # page.text.must_include "No comments on this post yet"
     # page.text.must_include posts(:cr).title
     # page.text.must_include users(:test).email
-    page.text.must_include users(:author).email
+    # page.text.must_include users(:author).email
   end
 
   scenario "unauthenticated site visitors cannot visit new_post_path" do
@@ -26,6 +27,7 @@ feature "Creating a post" do
     page.must_have_content "You need to sign in or sign up before continuing"
   end
 
+# added this back on 4/5/14
   scenario "unauthenticated site visitors cannot see new post button" do
     # When I visit the blog index page
     visit posts_path
@@ -52,7 +54,7 @@ feature "Creating a post" do
     visit new_post_path
 
     # There is a checkbox for published
-     page.must_have_field('Published')
+    page.must_have_field('Published')
 
     # When I submit the form
     fill_in "Title", with: posts(:cr).title

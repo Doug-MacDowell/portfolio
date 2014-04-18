@@ -1,6 +1,6 @@
 portfolio:
   name: How meta
-  technologies_used: Ruby, Rails, Zurb
+  technologies_used: Ruby, Rails, Zurb, Devise, Pundit, OmniAuth
 
 freelance:
   name: Barnyard Cereal
