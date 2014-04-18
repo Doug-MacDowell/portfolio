@@ -16,7 +16,7 @@ feature "Creating a post" do
     page.text.must_include "Post was successfully created"
     page.text.must_include "Status: Unpublished"
     page.has_css? "#author"
-    page.text.must_include "No comments on this post yet"
+    # page.text.must_include "No comments on this post yet"
     # page.text.must_include posts(:cr).title
     # page.text.must_include users(:test).email
     # page.text.must_include users(:author).email

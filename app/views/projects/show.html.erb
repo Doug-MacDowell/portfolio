@@ -1,8 +1,17 @@
-<h2><%= @project.name %></h2>
-<p>Technologies used: <%= @project.technologies_used %>
+<h3>Project: <%= @project.name %></h3>
+<h5>Technologies used: <%= @project.technologies_used %></h5>
 
 <br />
-<br />
+
+<h5><b><font color="green">Comments for this project</h5></b></font>
+  <%= render "comments/comment" %>
+
+<h5><I>Add a Comment:</I></h5>
+  <%= render "comments/form" %>
+<br><b>
+<% if policy(@project).update? %>
+  <%= link_to 'Edit Project', edit_project_path(@project) %> |
+<% end %>
 <%= link_to 'Destroy', @project, method: :delete, data: {confirm: 'Are you sure?'} %>
 <br />
 <br />

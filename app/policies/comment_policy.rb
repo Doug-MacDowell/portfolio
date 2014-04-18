@@ -1,6 +1,6 @@
 class CommentPolicy < ApplicationPolicy
 
-  attr_reader  :comment, :user, :post
+  attr_reader  :comment, :user, :post, :project
 
   def create?
   end

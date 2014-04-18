@@ -19,14 +19,25 @@ class PostsController < ApplicationController
     end
   end
 
+
   # GET /posts/1
   # GET /posts/1.json
+  # This is the original method before adding polymorphism
+  # def show
+  #   @comment = Comment.new
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.json { render json: @post }
+  #   end
+  # end
+
+
+  # New show method after adding polymorphism
   def show
+    @post = Post.find(params[:id])
+    @commentable = @post
+    @comments = @commentable.comments
     @comment = Comment.new
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
   end
 
   # GET /posts/new

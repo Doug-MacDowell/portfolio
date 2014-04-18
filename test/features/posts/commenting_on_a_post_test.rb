@@ -2,30 +2,27 @@ require "test_helper"
 
 feature "Commenting On A Post" do
    scenario "submit comments on an existing post" do
-  #   # Given an existing post, I want to write a comment from a blog post page
-  #   # so that I can troll the author
-     sign_in(:author)
+     # Given an existing post, I want to write a comment from a blog post page
+     # so that I can troll the author
+     sign_in
      visit new_post_path
-  # These tests are broken due to new posts needing to be published before
-  # they can be commented on.  Working on it!
-  #   post = Post.create(title: "Becoming a Code Fellow", body: "Means striving for excellence.")
-  #   #visit new_post_path(post)
+     fill_in "Title", with: posts(:cr).title
+     fill_in "Body", with: posts(:cr).body
+     check "Published"
+     click_on "Create Post"
 
-  #   # When I click comment and submit changed data
-  #   visit new_post_path(post)
-  #   fill_in "Your name", with: "SomeRakeGuy"
-  #   # added this to fix email error
-  #   fill_in "email address", with: "somerakeguy@test.co"
-  #   fill_in "Your Comment", with: "So you think you are a Web Developer!"
-  #   click_on "Submit comment for approval"
+     # When I submit comment data on the existing post
+     fill_in "Your name", with: comments(:lana).author
+     fill_in "Your email", with: comments(:lana).author_email
+     fill_in "Your URL", with: comments(:lana).author_url
+     fill_in "Your Comment", with: comments(:lana).content
 
-  #   # Then the post is updated
-  #   # Need to work on what we see here next
-  #   #page.text.must_include "This comment is awaiting moderation"
-  #   #page.text.must_include "Status: Unpublished"
-  #   page.text.must_include "Web Developer"
+     # When I submit the form
+     click_on "Submit comment for approval"
+
+     # Then the post is updated and awaits moderation
+     page.text.must_include "This comment is awaiting moderation"
    end
-
 end
 
 feature "Approving A Post" do

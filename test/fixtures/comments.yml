@@ -1,0 +1,15 @@
+jack:
+  author: jack
+  author_url: http://troll.example.com
+  author_email: jack@troll.example.com
+  content: you are so crazy
+  commentable: social_network
+  commentable_type: project
+
+lana:
+  author: lana
+  author_url: http://lana.example.com
+  author_email: lana@troll.example.com
+  content: your site is a mess
+  commentable: social_network
+  commentable_type: post
