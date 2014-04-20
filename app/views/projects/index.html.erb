@@ -1,13 +1,15 @@
 <h1><strong>Listing of Projects</strong></h1>
 
-<p>
-<%= link_to 'Back to Home', root_path, class: "button tiny" %>
-</p>
+<div class="row">
+  <div class="columns large-12">
 
-<ul>
-  <%= render @projects %>
-</ul>
+    <section id="projects">
+      <%= render @projects %>
+    </section>
+
+  </div>
+</div>
 
 <br />
-<%= link_to 'New project', new_project_path, remote: true, id: :new_link %>
-<br />
+<%= link_to 'New project', new_project_path, remote: true, id: :new_link %> |
+<%= link_to 'Back', root_path %>
