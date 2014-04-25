@@ -11,17 +11,26 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    if @project.save
-      flash[:notice] = "Project has been created."
-      redirect_to @project
-    else
-      flash[:error] = "Project could not be saved."
-      render :new
+    respond_to do |format|
+      format.html do
+        if @project.save
+          flash[:notice] = "Project has been created."
+          redirect_to @project
+        else
+          flash[:error] = "Project could not be saved."
+          render :new
+        end
+      end
+      format.js do
+        unless @project.save
+          render text: @project.errors.full_messages.join,
+          status: :unprocessable_entry
+        end
+      end
     end
   end
 
   def show
-  #  @project = Project.find(params[:id])
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new

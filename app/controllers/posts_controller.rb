@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-#  before_action :set_comment, only: [:approve, :destroy]
-#  before_action :set_post, only: [:create, :approve, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -22,17 +20,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
-  # This is the original method before adding polymorphism
-  # def show
-  #   @comment = Comment.new
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.json { render json: @post }
-  #   end
-  # end
-
-
-  # New show method after adding polymorphism
+  # New method after adding polymorphism
   def show
     @post = Post.find(params[:id])
     @commentable = @post
