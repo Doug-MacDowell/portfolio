@@ -22,12 +22,10 @@ group :doc do
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'travis', '~>1.6.7'
 end
 
 group :test do
-  gem 'sqlite3'
   gem 'turn', '~>0.9.6'
   gem 'launchy'
   gem 'minitest-rails-capybara'
