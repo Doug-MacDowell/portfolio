@@ -3,7 +3,6 @@ class PostPolicy < ApplicationPolicy
   attr_reader :user, :post
 
     def initialize(user, post)
-      #@user = user || NullUser.new
       @user = user
       @post = post
     end
@@ -12,7 +11,6 @@ class PostPolicy < ApplicationPolicy
       if user.editor? || user.author?
         [:title, :body, :published, :tag_list]
       else
-        # [:tag_list]
         [:title, :body, :tag_list]
       end
     end
@@ -20,11 +18,6 @@ class PostPolicy < ApplicationPolicy
     def update?
       @user.author? || @user.editor?
     end
-
-  #  this is from pundit readme
-  #  def update?
-  #    user.author? or not post.published?
-  #  end
 
     def create?
       if user.present?
@@ -50,12 +43,6 @@ class PostPolicy < ApplicationPolicy
         user.id == post.author_id
       end
     end
-
-  #  def index?
-  #    if ! @user.nil?
-  #      @user.editor? || @user.author?
-  #    end
-  #  end
 
   class Scope < Struct.new(:user, :scope)
     def resolve
