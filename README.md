@@ -9,7 +9,7 @@ Authentication using Pundit has been recently added, and comments can now be sub
 
 Twitter users now have the ability to sign in and contribute comments.
 
-NEW: Polymorphic associations are now utilized so that comments can be submitted on projects, as well as for posts.
+Polymorphic associations are now utilized so that comments can be submitted on projects, as well as for posts.
 
 The projects page now uses single-page CRUD courtesy of Ajax.
 
