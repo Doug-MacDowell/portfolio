@@ -16,6 +16,8 @@ gem 'pg'
 gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'carrierwave'
+gem 'fog'
 
 group :doc do
   gem 'sdoc', require: false

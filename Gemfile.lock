@@ -38,6 +38,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -56,6 +61,7 @@ GEM
     ethon (0.6.3)
       ffi (>= 1.3.0)
       mime-types (~> 1.18)
+    excon (0.33.0)
     execjs (2.0.2)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
@@ -65,6 +71,24 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    fog (1.22.0)
+      fog-brightbox
+      fog-core (~> 1.21, >= 1.21.1)
+      fog-json
+      nokogiri (~> 1.5, >= 1.5.11)
+    fog-brightbox (0.0.2)
+      fog-core
+      fog-json
+    fog-core (1.22.0)
+      builder
+      excon (~> 0.33)
+      formatador (~> 0.2)
+      mime-types
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+    fog-json (1.0.0)
+      multi_json (~> 1.0)
+    formatador (0.2.4)
     foundation-rails (5.1.0.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -113,6 +137,9 @@ GEM
     multipart-post (1.2.0)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -216,9 +243,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  carrierwave
   coffee-rails (~> 4.0.0)
   devise
   figaro
+  fog
   foundation-rails (~> 5.1.0.1)
   jbuilder (~> 1.2)
   jquery-rails
