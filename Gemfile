@@ -17,6 +17,7 @@ gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'fog'
 
 group :doc do
