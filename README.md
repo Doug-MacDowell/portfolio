@@ -13,7 +13,7 @@ Polymorphic associations are now utilized so that comments can be submitted on p
 
 The projects page now uses single-page CRUD courtesy of Ajax.
 
-To Do: Add CarrierWave for uploading images to projects
+NEW! Added CarrierWave to facilitate image uploading to Projects.
 
 ### Author:  Doug MacDowell
 
