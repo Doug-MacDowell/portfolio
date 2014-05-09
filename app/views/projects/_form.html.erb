@@ -19,6 +19,11 @@
     <%= f.label :technologies_used %><br />
     <%= f.text_area :technologies_used %>
   </div>
+  <div class="field">
+    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

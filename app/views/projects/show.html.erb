@@ -1,6 +1,8 @@
 <h3>Project: <%= @project.name %></h3>
 <h5>Technologies used: <%= @project.technologies_used %></h5>
-
+<p>
+  <%= image_tag @project.image_url(:preview).to_s %>
+</p>
 <br />
 
 <h5><b><font color="green">Comments for this project</h5></b></font>
