@@ -15,4 +15,10 @@ Portfolio::Application.routes.draw do
 
   resources :comments
 
+  namespace :api do
+    namespace :v1 do
+      resources :posts, :only => [ :create ]
+    end
+  end
+
 end
