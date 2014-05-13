@@ -12,9 +12,9 @@ class Post < ActiveRecord::Base
     save!
   end
 
-#  def authored_by?(user)
-#    author == user
-#  end
+  def authored_by?(user)
+    author == user
+  end
 
   def self.create_from_postmark(mitt)
     api_token = mitt.from #.split("@").first.split("+").last
