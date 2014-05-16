@@ -45,6 +45,7 @@ class CommentsController < ApplicationController
                                     :author_email,
                                     :content,
                                     :referrer,
+                                    :approved,
                                     :commentable_id)
   end
 
