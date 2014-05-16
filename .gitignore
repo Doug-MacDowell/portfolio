@@ -34,3 +34,4 @@ log/test.log
 rerun.txt
 pickle-email-*.html
 .project
+Rakefile
