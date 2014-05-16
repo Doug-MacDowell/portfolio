@@ -22,6 +22,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'postmark-mitt'
+gem 'sidekiq'
+gem 'foreman'
+gem 'sinatra', require: false
 
 group :doc do
   gem 'sdoc', require: false
