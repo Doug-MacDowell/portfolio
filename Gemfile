@@ -16,12 +16,15 @@ gem 'foundation-rails', '~> 5.1.0.1'
 gem 'pg'
 gem 'omniauth'
 gem 'pundit'
-gem 'rake', '10.2.2'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'postmark-mitt'
+gem 'sidekiq'
+gem 'foreman'
+gem 'sinatra', require: false
 
 group :doc do
   gem 'sdoc', require: false

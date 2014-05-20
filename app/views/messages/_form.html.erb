@@ -1,0 +1,24 @@
+<div class="message_form">
+  <%= form_for(@message) do |f| %>
+
+    <div class="field">
+      <%= f.label :name, "Your name" %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email, "Your email" %><br>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :content, "Your message" %><br>
+      <%= f.text_area :content %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Submit your message" %>
+    </div>
+
+  <% end %>
+</div>

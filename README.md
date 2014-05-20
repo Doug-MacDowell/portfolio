@@ -12,8 +12,9 @@ Twitter users now have the ability to sign in and contribute comments.
 Polymorphic associations are now utilized so that comments can be submitted on projects, as well as for posts.
 
 The projects page now uses single-page CRUD courtesy of Ajax.
+CarrierWave is utilized to facilitate image uploading to Projects.
 
-NEW! Added CarrierWave to facilitate image uploading to Projects.
+NEW! Added a contact form and email capability. Incoming email can be published as Postings.
 
 ### Author:  Doug MacDowell
 
@@ -25,7 +26,7 @@ TBD - *This is a work in progress for a Rails programming class.*
 
 The main page now has enhanced formatting, including a title bar with nav buttons.
 
-The __Postings__ button will take you to the Posts page.
+The __Postings__ button will take you to the Posts page, which includes Posts via email.
 
 The __Projects__ button takes you to the listing of fictitious projects. From there, new projects can be added, and existing projects can be edited or deleted.
 

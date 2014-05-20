@@ -16,24 +16,29 @@
   </thead>
 
   <tbody>
+    <h4>Published Posts</h4>
     <% @posts.each do |post| %>
-      <% if post.published? || policy(post).index? %>
-        <h4>Published Posts</h4>
-        <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-        <% if current_user && policy(post).update? %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <% end %>
-        <% if current_user && policy(post).destroy? %>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-      <% else %>
-          <I>Unpublished posts are awaiting moderation</I>
-          <br>
+      <tr id="<%= dom_id(post) %>">
+      <td><%= post.title %></td>
+      <td>
+      <%= post.body %>
+      </td>
+      <td><%= link_to 'Show', post, class: "btn" %></td>
+      <% if policy(post).update? %>
+        <td>
+        <%= link_to 'Edit', edit_post_path(post), class: "btn btn-default" %>
+        <p class="pull-right"><%= "Published" if post.published %></p>
+        </td>
+        <td>
+        <%= button_to 'Publish', post_path(post, post: { published: true }),
+          method: :put, class: "btn btn-default" %>
+        </td>
       <% end %>
+      <% if policy(post).destroy? %>
+        <td><%= link_to 'Destroy', post, method: :delete,
+          data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %></td>
+      <% end %>
+      </tr>
     <% end %>
   </tbody>
 </table>
