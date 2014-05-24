@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
      if @comment.save
        flash[:notice] = "This comment is awaiting moderation"
        redirect_to @commentable
+       CommentMailer.delay.new_comment(@comment, @commentable)
      else
        instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
        render template: "#{@resource}/show"
