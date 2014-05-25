@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable, except: [:index]
 
+  include Sidekiq::Worker
+
    def index
      authorize Comment
      @comments = Comment.all
@@ -11,7 +13,7 @@ class CommentsController < ApplicationController
      if @comment.save
        flash[:notice] = "This comment is awaiting moderation"
        redirect_to @commentable
-       CommentMailer.delay.new_comment(@comment, @commentable)
+       CommentMailer.delay_for(2.minutes).new_comment(@comment, @commentable)
      else
        instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
        render template: "#{@resource}/show"
@@ -35,6 +37,17 @@ class CommentsController < ApplicationController
     else
       instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
       render template: "#{@resource}/show"
+    end
+  end
+
+  def approve
+    @comment = Comment.find(params[:id])
+    if @comment.update(approved: true)
+      redirect_to request.referrer, notice: "Successfully approved comment!"
+      redirect_to comments_path
+    else
+      redirect_to request.referrer, notice: "Can't approve comment"
+      redirect_to comments_path
     end
   end
 

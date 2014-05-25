@@ -1,6 +1,6 @@
 class CommentMailer < ActionMailer::Base
 
-  default from: "dougmac9@uw.edu"
+  default from: "surfside656@gmail.com"
 
   def new_comment(comment, commentable)
     @comment = comment
