@@ -3,18 +3,24 @@
 # Portfolio
 
 This is a basic portfolio site built using Rails 4.0.2, PostgreSQL 9.1, Zurb Foundation 5.
+The site has a Posts page, as well as a Projects page where images can be uploaded to
+projects via CarrierWave.
 
-Current features include a Posts page, and a Projects listing page.
-Authentication using Pundit has been recently added, and comments can now be submitted on posts.
+This project is being developed as part of a Ruby & Rails course at the University of Washington.
 
-Twitter users now have the ability to sign in and contribute comments.
+### Current Features:
+Authentication uses Pundit, and comments can be submitted on posts, subject to approval by
+the site Editor.
 
-Polymorphic associations are now utilized so that comments can be submitted on projects, as well as for posts.
+Twitter users now have the ability to sign in with their Twitter account and contribute comments.
 
-The projects page now uses single-page CRUD courtesy of Ajax.
-CarrierWave is utilized to facilitate image uploading to Projects.
+Polymorphic associations are utilized so that comments can be submitted on projects, as well as for posts.
 
-NEW! Added a contact form and email capability. Incoming email can be published as Postings.
+The projects page uses single-page CRUD courtesy of Ajax.
+
+Incoming email can be published as Postings.
+
+NEW! A background worker utilizing Sidekiq has been added. This worker will send email to the Editor whenever comments are submitted for approval.
 
 ### Author:  Doug MacDowell
 
@@ -24,11 +30,11 @@ TBD - *This is a work in progress for a Rails programming class.*
 
 ## Usage
 
-The main page now has enhanced formatting, including a title bar with nav buttons.
+Enhanced formatting, including a title bar with nav buttons, is used throughout the site.
 
-The __Postings__ button will take you to the Posts page, which includes Posts via email.
+The __Postings__ button will take you to the Posts page, which includes Posts that arrive via email.  Comments can be added to any published post.
 
-The __Projects__ button takes you to the listing of fictitious projects. From there, new projects can be added, and existing projects can be edited or deleted.
+The __Projects__ button takes you to the listing of fictitious projects. From there, new projects can be added, and existing projects can be edited or deleted. Project images can be uploaded.
 
 ### Link to screenshot of application running on Heroku:
 
